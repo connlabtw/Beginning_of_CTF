@@ -22,13 +22,13 @@ def login():
 	token = input("> Token: ")
 	token = aes.decrypt(bytes.fromhex(token))
 	token = parse_qs(unpad(token).decode('utf8'))
-	if token['usr'][0] == 'admin':
+	if token['usr'][0] == 'Obama':
 		for key, value in token.items():
 			assert len(value) == 1
 			if key == "admin" and value[0][0] == "Y":
 				print(FLAG)
-		print("> login finish, bye~")
-		exit()
+	print("> login finish, bye~")
+	exit()
 
 if __name__ == '__main__':
 	key = os.urandom(32)
